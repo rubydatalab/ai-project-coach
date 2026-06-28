@@ -1,0 +1,15 @@
+# OS / 에디터
+.DS_Store
+Thumbs.db
+
+# Python (lecture/build_slides.py)
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# PowerPoint 임시 잠금파일 (열어둘 때 생김)
+~$*.pptx
+
+# 도구 산출물 (프로젝트와 무관)
+.openchrome/
