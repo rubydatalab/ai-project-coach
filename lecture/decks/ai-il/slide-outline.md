@@ -50,14 +50,22 @@ meta:
 20·맨땅. **bullets** 맨 땅에서 시작 개요 — ①Codex 설치 ②코치 설치(명령 두 줄) ③첫 직원. *부트스트랩은 실제 명령으로(아래).*
 20a. **bullets** ① Codex 설치 (실제 명령) — PowerShell에 `irm https://chatgpt.com/codex/install.ps1 | iex` → 창 다시 열기 → `codex` → 'Sign in with ChatGPT' 로그인. (대안 `npm install -g @openai/codex`)
 20b. **bullets** ② 코치 설치 (플러그인 두 줄) — `codex plugin marketplace add rubydatalab/ai-project-coach` → `codex plugin add ai-employee-coach@ai-project-coach` → '~하고 싶어'. **폴더 만질 필요 없음(닭-달걀 빈틈 제거).**
-20c. **bullets** 권한 모드 고르기 — 처음 켜면(또는 `/permissions`) 선택. **자기 PC면 Full Access 추천**(막힘 없이 빠름; Windows에선 Auto가 자주 막혀 답답). ⚠️경고: 도구 차원 안전망 꺼짐 → **결제·발송·삭제·게시는 늘 사람이**(코치도 위험행동 전 확인). Auto는 조심스러운 대안. ※스킬엔 안 박고 강의에서만 추천(교육 표면).
+20c. **bullets** 권한 모드 고르기 — 처음 켜면(또는 `/permissions`) 선택. **자기 PC면 Full Access 추천**(막힘 없이 빠름; Windows에선 Auto가 자주 막혀 답답). ⚠️경고: 도구 차원 안전망 꺼짐 → **결제·발송·삭제·게시는 늘 사람이**(코치도 위험행동 전 확인). Auto는 조심스러운 대안. **매번 안 고르려면** `~/.codex/config.toml`에 `approval_policy="never"`·`sandbox_mode="danger-full-access"`. ※스킬엔 안 박고 강의에서만 추천(교육 표면).
+20c2. **bullets** AI 직원 부르는 법 — ①그냥 말로(자동 선택) ②콕 집어 `$이름`(예 `$ai-agent-maker`) ③목록 `/skills`. 새로 만든 직원도 동일.
 20d. **glossary2** 자주 쓰는 명령어 카드 — `/clear` `/resume` `/goal` `/plan` `/permissions` `/model` `/compact` `/status` `/quit`. **비개발자 기준 큐레이션**(`/diff`·`/init` 등 개발자용 제외).
-20e. **bullets** 진행상황 — 초록색 영어는 'AI가 생각 중'(안 읽어도 됨), 진행·결과는 코치가 한국어로, 더 보려면 `/status`·`/goal`
+(진행상황 슬라이드는 제거 — 권한/명령어로 충분.)
 21. 환경은 '환경 준비 도우미'가 알아서 (setup-helper) — 따로따로 설치 안 함
 22. 내 PC에서 매일 쓰기 (run-helper) / 막히면 문제 해결 코치 (trouble-helper)
 23. **team** — 스킬 11종 한눈에 (시작 · 사업 · 개인 · 사용)
 24. 🛑 멈춤 버튼 — 언제 믿고 언제 직접 볼까
 25. **quote** — 경쟁자는 AI 강의가 아니라 운전면허 학원
-26. **closing** — 도구는 바뀌어도 판단은 남는다 / 당신은 이제 AI 사장님
+26. **closing** — 외우지 마세요, 그냥 시켜보세요 / 당신은 이제 AI 사장님
+
+## 부록 + 마무리
+27. **section-divider** 부록 · 용어 사전 — *"이 개념들만 알아두면 AI한테 일 시키기가 한결 편해져요"*(옛 "외울 필요 없어요"에서 긍정 프레이밍으로). 해부도 + 용어 termpage 12장.
+28. **qa** — Q & A / 무엇이든 물어보세요.
+29. **ask_codex** (애니메이션: pulseGlow + 깜빡 커서) — "Codex한테 물어보세요" / "이거 어떻게 해?" 라고 그냥 물으면 됩니다.
+
+> PART 1의 "2시간/18시간" statement는 흐름상 뜬금없어 제거. PART 3 "진행상황" 슬라이드도 제거(권한·명령어 카드로 충분).
 ```
 ```

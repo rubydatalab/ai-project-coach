@@ -141,4 +141,12 @@ body { width:720pt; height:405pt; font-family:'Pretendard',sans-serif; backgroun
 /* closing */
 .cl-title { font-size:46pt; font-weight:800; text-align:center; line-height:1.15; }
 .cl-sub { font-size:18pt; color:#9aa0c0; text-align:center; margin-top:18pt; }
+/* qa / ask-codex (애니메이션) */
+@keyframes pulseGlow { 0%,100% { transform:scale(1); opacity:.9; } 50% { transform:scale(1.05); opacity:1; } }
+@keyframes blink { 0%,100% { opacity:1; } 50% { opacity:0; } }
+@keyframes floatUp { 0% { opacity:0; transform:translateY(16pt); } 100% { opacity:1; transform:translateY(0); } }
+.ask-kick { font-size:15pt; color:#9aa0c0; letter-spacing:3pt; text-align:center; }
+.ask-big { font-size:56pt; font-weight:800; text-align:center; animation:pulseGlow 2.4s ease-in-out infinite; }
+.ask-pill { display:inline-block; margin-top:28pt; font-size:18pt; color:#bfeaff; background:rgba(0,180,255,.1); border:1.5pt solid rgba(0,180,255,.42); border-radius:30pt; padding:13pt 30pt; animation:floatUp .9s ease-out both; }
+.ask-cursor { animation:blink 1s step-end infinite; font-weight:400; }
 </style></head><body><div class="bg"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div><div class="scan"></div></div><div class="frame"><div class="kicker">자주 쓰는 명령어 · 외우지 말고 곁에 두기</div><div class="h1">대화 중에 &#x27;/&#x27;로 부르는 것들</div><div class="rule"></div><div class="gg"><div class="gi"><div class="gt" style="color:#00FF88;">/clear</div><div class="gd">머리 비우고 새 대화 — 앞 얘기 안 끌고 감</div></div><div class="gi"><div class="gt" style="color:#00B4FF;">/resume</div><div class="gd">저장된 지난 대화를 골라 이어받기</div></div><div class="gi"><div class="gt" style="color:#7B00FF;">/goal</div><div class="gd">지금 뭘 목표로 일하는지 정하고·확인하기</div></div><div class="gi"><div class="gt" style="color:#FBBF24;">/plan</div><div class="gd">바로 시작 말고, 계획부터 세우게 시키기</div></div><div class="gi"><div class="gt" style="color:#00FF88;">/permissions</div><div class="gd">AI에게 뭘 허용할지 — 자기 PC면 Full Access</div></div><div class="gi"><div class="gt" style="color:#00B4FF;">/model</div><div class="gd">더 똑똑한 머리로 바꾸기 · 생각 깊이 조절</div></div><div class="gi"><div class="gt" style="color:#7B00FF;">/compact</div><div class="gd">길어진 대화를 요약해 압축 (한도 넘기 전에)</div></div><div class="gi"><div class="gt" style="color:#FBBF24;">/status</div><div class="gd">어디까지 했나 · 얼마나 썼나 한눈에</div></div><div class="gi"><div class="gt" style="color:#00FF88;">/quit</div><div class="gd">끄기 — 그냥 창을 닫아도 됩니다</div></div></div></div><div class="pagenum">39</div></body></html>

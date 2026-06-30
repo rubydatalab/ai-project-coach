@@ -141,4 +141,12 @@ body { width:720pt; height:405pt; font-family:'Pretendard',sans-serif; backgroun
 /* closing */
 .cl-title { font-size:46pt; font-weight:800; text-align:center; line-height:1.15; }
 .cl-sub { font-size:18pt; color:#9aa0c0; text-align:center; margin-top:18pt; }
-</style></head><body><div class="bg"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div><div class="scan"></div></div><div class="frame"><div class="kicker">환경 준비 도우미 · 점검하고, 빠지면 깔아줌</div><div class="h1">미리 다 깔 필요 없어요</div><div class="rule"></div><div style="margin-top:22pt;"><div class="li ">처음 부르면 <b>환경을 한 번 점검</b> — 브라우저 등 빠진 걸 알려줌</div><div class="li c">필요한 것만 <b>그때그때</b> 설치, 안 쓸 도구는 안 깖</div><div class="li v">사장님은 <b>로그인·'허용' 누르기</b>만, 비밀번호는 AI가 안 만짐</div></div></div><div class="pagenum">41</div></body></html>
+/* qa / ask-codex (애니메이션) */
+@keyframes pulseGlow { 0%,100% { transform:scale(1); opacity:.9; } 50% { transform:scale(1.05); opacity:1; } }
+@keyframes blink { 0%,100% { opacity:1; } 50% { opacity:0; } }
+@keyframes floatUp { 0% { opacity:0; transform:translateY(16pt); } 100% { opacity:1; transform:translateY(0); } }
+.ask-kick { font-size:15pt; color:#9aa0c0; letter-spacing:3pt; text-align:center; }
+.ask-big { font-size:56pt; font-weight:800; text-align:center; animation:pulseGlow 2.4s ease-in-out infinite; }
+.ask-pill { display:inline-block; margin-top:28pt; font-size:18pt; color:#bfeaff; background:rgba(0,180,255,.1); border:1.5pt solid rgba(0,180,255,.42); border-radius:30pt; padding:13pt 30pt; animation:floatUp .9s ease-out both; }
+.ask-cursor { animation:blink 1s step-end infinite; font-weight:400; }
+</style></head><body><div class="bg"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div><div class="scan"></div></div><div class="frame"><div class="kicker">매일 쓰기 · 막히면</div><div class="h1">내 PC에서, 늘 같은 3단계</div><div class="rule"></div><div style="margin-top:22pt;"><div class="li "><b>① 폴더 열기 → ② AI 켜기 → ③ '그거 해줘'</b>, 매번 같아요</div><div class="li c">지난번 만든 직원은 이름으로 다시 부르면 끝</div><div class="li v">git·배포·온라인은 신경 안 써도 돼요 — 내 컴퓨터에서 씁니다</div><div class="li ">이상하면 '문제 해결 코치'가 원인을 같이 좁혀줌</div></div></div><div class="pagenum">41</div></body></html>

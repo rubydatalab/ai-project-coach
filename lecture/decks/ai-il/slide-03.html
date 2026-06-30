@@ -141,4 +141,12 @@ body { width:720pt; height:405pt; font-family:'Pretendard',sans-serif; backgroun
 /* closing */
 .cl-title { font-size:46pt; font-weight:800; text-align:center; line-height:1.15; }
 .cl-sub { font-size:18pt; color:#9aa0c0; text-align:center; margin-top:18pt; }
+/* qa / ask-codex (애니메이션) */
+@keyframes pulseGlow { 0%,100% { transform:scale(1); opacity:.9; } 50% { transform:scale(1.05); opacity:1; } }
+@keyframes blink { 0%,100% { opacity:1; } 50% { opacity:0; } }
+@keyframes floatUp { 0% { opacity:0; transform:translateY(16pt); } 100% { opacity:1; transform:translateY(0); } }
+.ask-kick { font-size:15pt; color:#9aa0c0; letter-spacing:3pt; text-align:center; }
+.ask-big { font-size:56pt; font-weight:800; text-align:center; animation:pulseGlow 2.4s ease-in-out infinite; }
+.ask-pill { display:inline-block; margin-top:28pt; font-size:18pt; color:#bfeaff; background:rgba(0,180,255,.1); border:1.5pt solid rgba(0,180,255,.42); border-radius:30pt; padding:13pt 30pt; animation:floatUp .9s ease-out both; }
+.ask-cursor { animation:blink 1s step-end infinite; font-weight:400; }
 </style></head><body><div class="bg"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div><div class="scan"></div></div><div class="frame"><div class="kicker">그런데 이걸 AI한테 제대로 시키려면</div><div class="h1">원래는, 이런 기법을 하나하나 익혀야 합니다</div><div class="rule"></div><div class="chips" style="margin-top:22pt;"><span class="chip">역할·맥락 정해주기</span><span class="chip">말투·금지 규칙 잡기</span><span class="chip">일 순서·예외 설계</span><span class="chip">사업 지식 떠먹이기</span><span class="chip">외부 서비스 연결</span><span class="chip">브라우저 동작 학습</span><span class="chip">이미지 생성 다루기</span><span class="chip">자동 실행 조건 잡기</span><span class="chip">위험 차단 장치 넣기</span><span class="chip">여러 AI 분업시키기</span></div><div style="margin-top:18pt;font-size:15pt;color:#7d83a3;">이게 &#x27;AI를 다루는 기법&#x27;이에요. 하나하나 따로 배워야 한다면, 시작도 전에 지치죠.</div></div><div class="pagenum">03</div></body></html>

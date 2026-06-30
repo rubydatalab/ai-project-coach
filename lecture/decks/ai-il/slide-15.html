@@ -141,4 +141,12 @@ body { width:720pt; height:405pt; font-family:'Pretendard',sans-serif; backgroun
 /* closing */
 .cl-title { font-size:46pt; font-weight:800; text-align:center; line-height:1.15; }
 .cl-sub { font-size:18pt; color:#9aa0c0; text-align:center; margin-top:18pt; }
+/* qa / ask-codex (애니메이션) */
+@keyframes pulseGlow { 0%,100% { transform:scale(1); opacity:.9; } 50% { transform:scale(1.05); opacity:1; } }
+@keyframes blink { 0%,100% { opacity:1; } 50% { opacity:0; } }
+@keyframes floatUp { 0% { opacity:0; transform:translateY(16pt); } 100% { opacity:1; transform:translateY(0); } }
+.ask-kick { font-size:15pt; color:#9aa0c0; letter-spacing:3pt; text-align:center; }
+.ask-big { font-size:56pt; font-weight:800; text-align:center; animation:pulseGlow 2.4s ease-in-out infinite; }
+.ask-pill { display:inline-block; margin-top:28pt; font-size:18pt; color:#bfeaff; background:rgba(0,180,255,.1); border:1.5pt solid rgba(0,180,255,.42); border-radius:30pt; padding:13pt 30pt; animation:floatUp .9s ease-out both; }
+.ask-cursor { animation:blink 1s step-end infinite; font-weight:400; }
 </style></head><body><div class="bg"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div><div class="scan"></div></div><div class="frame"><div class="kicker">자동화 3레벨 · 언제 올릴까</div><div class="h1">한 단계씩 올립니다</div><div class="rule"></div><div class="ladder"><div class="rung"><span class="lv" style="color:#00FF88;background:#00FF8822;border:1px solid #00FF8866;">레벨 1</span><span class="rt">부를 때 한다</span><span class="rd">시작은 여기 — 필요할 때 &#x27;그거 해줘&#x27;</span></div><div class="rung"><span class="lv" style="color:#00B4FF;background:#00B4FF22;border:1px solid #00B4FF66;">레벨 2</span><span class="rt">정해두면 알아서</span><span class="rd">매일 같은 일이면 → 정해진 시각에</span></div><div class="rung"><span class="lv" style="color:#7B00FF;background:#7B00FF22;border:1px solid #7B00FF66;">레벨 3</span><span class="rt">알아서 반응한다</span><span class="rd">내가 없는 사이, 짧은 주기로 점검해 대응</span></div></div><div style="margin-top:14pt;font-size:15pt;color:#00FF88;font-weight:700;">지금 단계가 일을 해내면 더 안 올려도 됩니다. 자동일수록 위험한 일엔 사람 확인. 예약·반응은 PC·AI가 켜져 있는 동안 돕니다.</div></div><div class="pagenum">15</div></body></html>

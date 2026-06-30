@@ -141,4 +141,12 @@ body { width:720pt; height:405pt; font-family:'Pretendard',sans-serif; backgroun
 /* closing */
 .cl-title { font-size:46pt; font-weight:800; text-align:center; line-height:1.15; }
 .cl-sub { font-size:18pt; color:#9aa0c0; text-align:center; margin-top:18pt; }
+/* qa / ask-codex (애니메이션) */
+@keyframes pulseGlow { 0%,100% { transform:scale(1); opacity:.9; } 50% { transform:scale(1.05); opacity:1; } }
+@keyframes blink { 0%,100% { opacity:1; } 50% { opacity:0; } }
+@keyframes floatUp { 0% { opacity:0; transform:translateY(16pt); } 100% { opacity:1; transform:translateY(0); } }
+.ask-kick { font-size:15pt; color:#9aa0c0; letter-spacing:3pt; text-align:center; }
+.ask-big { font-size:56pt; font-weight:800; text-align:center; animation:pulseGlow 2.4s ease-in-out infinite; }
+.ask-pill { display:inline-block; margin-top:28pt; font-size:18pt; color:#bfeaff; background:rgba(0,180,255,.1); border:1.5pt solid rgba(0,180,255,.42); border-radius:30pt; padding:13pt 30pt; animation:floatUp .9s ease-out both; }
+.ask-cursor { animation:blink 1s step-end infinite; font-weight:400; }
 </style></head><body><div class="bg"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div><div class="scan"></div></div><div class="frame"><div class="kicker">요즘은</div><div class="h1">매일 하던 이런 일까지, AI가 합니다</div><div class="rule"></div><div style="margin-top:22pt;"><div class="li ">상품 상세페이지 초안을 알아서 짠다</div><div class="li c">쇼핑몰 신규주문을 내려받아 정리한다</div><div class="li ">재고·상품자료를 표로 모아 정돈한다</div><div class="li c">고객문의 답변 초안을 먼저 써 둔다</div></div></div><div class="pagenum">02</div></body></html>

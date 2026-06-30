@@ -141,4 +141,12 @@ body { width:720pt; height:405pt; font-family:'Pretendard',sans-serif; backgroun
 /* closing */
 .cl-title { font-size:46pt; font-weight:800; text-align:center; line-height:1.15; }
 .cl-sub { font-size:18pt; color:#9aa0c0; text-align:center; margin-top:18pt; }
-</style></head><body><div class="bg"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div><div class="scan"></div></div><div class="sec-num">3</div><div class="frame" style="justify-content:center;"><div class="sec-kick" style="color:#7B00FF;">PART 3 · 준비하고, 쓰기</div><div class="sec-title">맨 땅에서 시작해,<br>매일 쓰기까지</div><div class="rule"></div><div class="sec-sub">처음 한 번만 깔면, 그 다음은 부르기만 하면 됩니다</div></div><div class="pagenum">34</div></body></html>
+/* qa / ask-codex (애니메이션) */
+@keyframes pulseGlow { 0%,100% { transform:scale(1); opacity:.9; } 50% { transform:scale(1.05); opacity:1; } }
+@keyframes blink { 0%,100% { opacity:1; } 50% { opacity:0; } }
+@keyframes floatUp { 0% { opacity:0; transform:translateY(16pt); } 100% { opacity:1; transform:translateY(0); } }
+.ask-kick { font-size:15pt; color:#9aa0c0; letter-spacing:3pt; text-align:center; }
+.ask-big { font-size:56pt; font-weight:800; text-align:center; animation:pulseGlow 2.4s ease-in-out infinite; }
+.ask-pill { display:inline-block; margin-top:28pt; font-size:18pt; color:#bfeaff; background:rgba(0,180,255,.1); border:1.5pt solid rgba(0,180,255,.42); border-radius:30pt; padding:13pt 30pt; animation:floatUp .9s ease-out both; }
+.ask-cursor { animation:blink 1s step-end infinite; font-weight:400; }
+</style></head><body><div class="bg"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div><div class="scan"></div></div><div class="frame"><div class="kicker">처음 한 번 · 맨 땅에서 시작</div><div class="h1">아무것도 없는 상태에서, 이 순서로</div><div class="rule"></div><div style="margin-top:22pt;"><div class="li "><b>① Codex 설치</b> — 깔고 로그인. 딱 한 번. (다음 장에 <b>실제 명령</b>)</div><div class="li c"><b>② 코치 설치</b> — 명령 두 줄로 'AI 직원 코치'를 깖. (그다음 장)</div><div class="li v"><b>③ 첫 직원</b> — 그냥 '하고 싶어' 한마디. 뭐부터 할지 모르면 마스터 코치가 안내.</div><div class="li ">브라우저 연결 같은 건 그때 <b>'환경 준비 도우미'</b>가 같이 깔아줌(로그인·허용만 사장님).</div></div></div><div class="pagenum">34</div></body></html>
