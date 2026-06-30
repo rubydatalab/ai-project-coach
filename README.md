@@ -28,7 +28,7 @@ irm https://chatgpt.com/codex/install.ps1 | iex
 
 ```
 codex plugin marketplace add rubydatalab/ai-project-coach
-codex plugin add ai-employee-coach
+codex plugin add ai-employee-coach@ai-project-coach
 ```
 
 **③ 부르기**

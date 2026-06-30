@@ -87,7 +87,7 @@ description: 비개발자 셀러가 AI 직원을 쓰기 위한 환경(스킬 묶
 
 ### 스킬 묶음
 - 이 코치들은 **Codex 플러그인**(`ai-employee-coach`)으로 깔린다. 한 번만:
-  `codex plugin marketplace add rubydatalab/ai-project-coach` → `codex plugin add ai-employee-coach`.
+  `codex plugin marketplace add rubydatalab/ai-project-coach` → `codex plugin add ai-employee-coach@ai-project-coach`.
   이미 깔려 있으면 `codex plugin list`로 확인되고 다시 깔지 않는다. (갱신은 `codex plugin marketplace upgrade`.)
 
 ---
