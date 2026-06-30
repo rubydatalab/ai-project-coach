@@ -13,3 +13,16 @@ venv/
 
 # 도구 산출물 (프로젝트와 무관)
 .openchrome/
+
+# node 의존성 (강의 빌드 도구 — 레포에 안 올림)
+node_modules/
+lecture/node_modules/
+
+# 에디터 설정
+.vscode/
+
+# 강의 생성 산출물 (정본은 build.py + slide-*.html. PDF·PNG·viewer는 재생성물이라 제외)
+lecture/decks/ai-il/out-png/
+lecture/decks/ai-il/*.pdf
+lecture/decks/ai-il/viewer.html
+lecture/slides.pdf

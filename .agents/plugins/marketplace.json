@@ -1,0 +1,22 @@
+{
+  "name": "ai-project-coach",
+  "interface": {
+    "displayName": "AI 직원 만들기"
+  },
+  "plugins": [
+    {
+      "name": "ai-employee-coach",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/rubydatalab/ai-project-coach.git",
+        "path": "./plugins/ai-employee-coach",
+        "ref": "main"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
