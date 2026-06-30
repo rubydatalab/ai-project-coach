@@ -50,7 +50,7 @@ meta:
 20·맨땅. **bullets** 맨 땅에서 시작 개요 — ①Codex 설치 ②코치 설치(명령 두 줄) ③첫 직원. *부트스트랩은 실제 명령으로(아래).*
 20a. **bullets** ① Codex 설치 (실제 명령) — PowerShell에 `irm https://chatgpt.com/codex/install.ps1 | iex` → 창 다시 열기 → `codex` → 'Sign in with ChatGPT' 로그인. (대안 `npm install -g @openai/codex`)
 20b. **bullets** ② 코치 설치 (플러그인 두 줄) — `codex plugin marketplace add rubydatalab/ai-project-coach` → `codex plugin add ai-employee-coach@ai-project-coach` → '~하고 싶어'. **폴더 만질 필요 없음(닭-달걀 빈틈 제거).**
-20c. **bullets** 권한은 'Auto'로 — 처음 켜면(또는 `/permissions`) 모드 선택. **Auto**(폴더 안 자유+위험한 건 물어봄) 추천 / Read Only(답답) / ⚠️Full Access(안전장치 꺼짐, 금지). '멈춤 버튼' 철학과 연결.
+20c. **bullets** 권한 모드 고르기 — 처음 켜면(또는 `/permissions`) 선택. **자기 PC면 Full Access 추천**(막힘 없이 빠름; Windows에선 Auto가 자주 막혀 답답). ⚠️경고: 도구 차원 안전망 꺼짐 → **결제·발송·삭제·게시는 늘 사람이**(코치도 위험행동 전 확인). Auto는 조심스러운 대안. ※스킬엔 안 박고 강의에서만 추천(교육 표면).
 20d. **glossary2** 자주 쓰는 명령어 카드 — `/clear` `/resume` `/goal` `/plan` `/permissions` `/model` `/compact` `/status` `/quit`. **비개발자 기준 큐레이션**(`/diff`·`/init` 등 개발자용 제외).
 20e. **bullets** 진행상황 — 초록색 영어는 'AI가 생각 중'(안 읽어도 됨), 진행·결과는 코치가 한국어로, 더 보려면 `/status`·`/goal`
 21. 환경은 '환경 준비 도우미'가 알아서 (setup-helper) — 따로따로 설치 안 함
