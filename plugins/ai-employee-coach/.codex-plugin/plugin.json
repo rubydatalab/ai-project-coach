@@ -1,6 +1,6 @@
 {
   "name": "ai-employee-coach",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "비개발자 셀러용 'AI 직원 만들기' 코치 11종 — 목표만 말하면 AI가 질문·설계해 자동화/AI 직원을 만들어준다.",
   "skills": "./skills/"
 }
