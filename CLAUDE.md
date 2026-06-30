@@ -14,6 +14,7 @@
 3. 커밋 → `git push`
 - 학생 설치: `codex plugin marketplace add rubydatalab/ai-project-coach` → `codex plugin add ai-employee-coach@ai-project-coach`
 - 학생 갱신: `codex plugin marketplace upgrade`
+- 학생 작업폴더 세팅: 정본 **`templates/AGENTS.md`**(코치 정체성·철칙)를 **설치 복붙의 `iwr` 한 줄**로 그 폴더에 받는다(AI 자작 아님 — 결정론적). 이 파일을 고치면 학생은 다시 받아야 반영됨. 예약은 앱 내장 **"예약됨"**(`tools/codex-scheduler/`는 가르치지 않는 CLI 폴백).
 
 ### B. 강의 덱 → GitHub Pages (.io)
 사이트: **https://rubydatalab.github.io/ai-project-coach/** (루트 `index.html` → `lecture/decks/ai-il/viewer.html` 리다이렉트)

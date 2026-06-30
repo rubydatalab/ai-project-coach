@@ -9,7 +9,10 @@
 ## 1. 제품 정체성
 
 - **대상**: 비개발자 셀러. 코딩 없이 **대화로** AI 직원/자동화를 만든다.
-- **주 환경**: **Codex**(네이티브 스킬·플러그인, 내장 `image_gen`). 진입점은 루트 `AGENTS.md` + 플러그인 스킬.
+- **주 환경**: **Codex 데스크톱 앱**(GitHub 불필요·로컬 폴더·ChatGPT 로그인만, 내장 `image_gen`·예약·리모트). 일일 사용 터미널 0 — 폴더(프로젝트) 열고 한마디.
+- **학생 진입점 = 작업폴더 `AGENTS.md`**(코치 정체성·철칙). 정본은 레포 **`templates/AGENTS.md`**이며 **설치 시 한 줄(`iwr`)로 그 폴더에 받는다** — AI가 자작하지 않는다(gpt-5.5가 대화 시작 시 파일 생성을 자꾸 미뤄 결정론적 배포로 전환, 실측). 루트 `AGENTS.md`는 레포 개발자용 진입점.
+- **세팅 = 복붙 3줄**: 앱 설치 → 폴더를 사이드바에 프로젝트로 추가 → 앱 내장 터미널에 `plugin marketplace add`·`plugin add`·`iwr`(폴더 `AGENTS.md`+`지식/`). 외부 PowerShell은 codex 설치 1회까지만.
+- **원격**: **리모트 컨트롤**(폰 ChatGPT 앱 → 내 PC, 설정에서 켜고 QR — **GitHub 불필요**). Cloud(chatgpt.com/codex)는 GitHub 레포 필수라 **안 씀**.
 - **배포**: GitHub 마켓플레이스 — `codex plugin marketplace add rubydatalab/ai-project-coach` → `codex plugin add ai-employee-coach`.
 - **두 부분**: (a) 스킬 패밀리 11종(= 플러그인 `ai-employee-coach`), (b) 강의 덱 `lecture/decks/ai-il/`.
 - **수강생에게 *가르치는* 범위 밖**: git·배포·온라인 호스팅·프론트엔드. ※ 이건 **수강생이 다루는 범위** 얘기다 — 이 레포 자체는 GitHub로 배포한다.
@@ -86,9 +89,9 @@
 
 ## 7. 자동화 실행 메커니즘
 
-- **예약(정해진 시각)**: Codex는 내장 cron이 없다 → `tools/codex-scheduler/`(node 무의존, 5필드 cron, `codex exec` 호출)로 보완.
+- **예약(정해진 시각)**: **Codex 앱 내장 "예약됨"**(사이드바 → '채팅으로 만들기', 대화형). 비git 작업폴더에서도 그 폴더에서 실행. (구 `tools/codex-scheduler/`는 **CLI 전용 폴백으로 보존, 가르치지 않음**.)
 - **외부 도구 연결**: `openchrome`(오픈소스 MCP, `openchrome-mcp`). 설치 — `codex mcp add openchrome -- npx -y openchrome-mcp@latest serve --auto-launch --visible`. 브라우저 자동화 쓸 때만 `setup-helper`가 그때 깐다.
-- **안전 가드레일**: 무인 실행은 사람이 못 막으므로, 도구가 모든 프롬프트 앞에 **"읽기·요약·초안만, 결제·발송·삭제·등록·대량변경 금지"**를 강제 주입한다.
+- **안전 가드레일**: 무인 실행은 사람이 못 막으므로 **읽기·요약·초안만**, 결제·발송·삭제·등록·대량변경 금지. 작업폴더 `AGENTS.md` 철칙이 이 선을 지킨다.
 - **공통 한계(정직)**: 예약·반응은 **PC와 Codex가 켜져 있는 동안만** 발동한다.
 
 ---
@@ -97,15 +100,17 @@
 
 | 도구 | 상태 |
 |---|---|
-| Codex | 0.142.4, 로그인됨. 내장 `image_gen`(실측 검증). 내장 cron 없음 → `tools/codex-scheduler/`. 플러그인·네이티브 스킬(`.agents/skills`) 지원. |
+| Codex | 0.142.4(모델 gpt-5.5), 로그인됨. **데스크톱 앱** 실측 — 스킬·플러그인·작업폴더 `AGENTS.md`·`image_gen`·예약 "예약됨"·리모트 컨트롤. 예약은 앱 내장 "예약됨"(codex-scheduler는 CLI 폴백·미사용). |
 | openchrome | `openchrome-mcp`(npm, 오픈소스). 브라우저 자동화용, 필요 시 설치. |
 
 ---
 
 ## 9. 강의 덱
 
-- 형식: **slides-grab**, `lecture/decks/ai-il/`, **60장**.
-- 구성: 오프닝 → PART 1 사고방식 → PART 2 "직원을 만들어 일을 시킨다"(카테고리 A~G, G=직접 짓기) → PART 3 준비·쓰기(Codex 설치·플러그인 설치·권한 모드·부르는 법·명령어·환경 준비) → 부록 용어 → Q&A → "Codex한테 물어보세요"(애니메이션).
+- 형식: **slides-grab**, `lecture/decks/ai-il/`, **54장**.
+- 구성: 오프닝 → PART 1 사고방식(부품 6장=Cron·Hook·Subagent·MCP·Tool·Skill/Workflow는 부록 termpage와 중복+"외우지 마" 표지와 모순이라 **제거(A안)**, 임팩트 statement 1장이 요약·다리) → PART 2 "직원을 만들어 일을 시킨다"(A~G, G=직접 짓기) → PART 3 준비·쓰기(**Desktop 중심**: 설치=**복붙 3줄**, 권한 **"나 대신 승인"**, 부르는 법·명령어, "이런 것도 됩니다"=이미지·예약됨·폰 리모트는 **강사 라이브 데모**) → 부록 용어 → Q&A → "Codex한테 물어보세요".
+- **복사 버튼**: 명령어 슬라이드는 `CMD()` 헬퍼로 오른쪽 "복사"(뷰어 클릭 복사, PDF/PNG는 정적 표시).
+- **원칙**: 쉽고 시각적인 건(리모트·이미지·예약) 슬라이드 말고 **강사 라이브 데모**, 슬라이드엔 정확·복붙만.
 - 빌드 파이프라인: `python decks/ai-il/build.py` → `slides-grab validate` → `build-viewer`(viewer.html) → (선택) `pdf`. PNG는 별도.
 
 ---
