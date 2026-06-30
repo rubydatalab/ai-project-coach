@@ -21,8 +21,8 @@ lecture/node_modules/
 # 에디터 설정
 .vscode/
 
-# 강의 생성 산출물 (정본은 build.py + slide-*.html. PDF·PNG·viewer는 재생성물이라 제외)
+# 강의 생성 산출물 (정본은 build.py + slide-*.html. PDF·PNG는 재생성물이라 제외)
+# viewer.html은 GitHub Pages로 공개하려고 추적함
 lecture/decks/ai-il/out-png/
 lecture/decks/ai-il/*.pdf
-lecture/decks/ai-il/viewer.html
 lecture/slides.pdf

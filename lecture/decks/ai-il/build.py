@@ -713,7 +713,7 @@ termpage(12, _T, "자동규칙", "Hook",
 
 # 마무리 — Q&A + "Codex한테 물어보세요"
 qa("Q & A", "무엇이든 물어보세요.")
-ask_codex("더 궁금한 게 있나요?", "Codex한테 물어보세요", "“이거 어떻게 해?” 라고 그냥 물으면 됩니다 ")
+ask_codex("저한테 말고", "Codex한테 물어보세요", "“이거 어떻게 해?” 라고 그냥 물으면 됩니다 ")
 
 # ---- write ----
 for i, h in enumerate(slides):
