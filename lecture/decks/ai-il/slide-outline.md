@@ -47,11 +47,12 @@ meta:
 
 ## PART 3 — 준비 · 사용 · 마무리
 20. **section-divider** PART 3 · 준비하고, 쓰기
-20·맨땅. **bullets** 맨 땅에서 시작 개요 — ①Codex 설치 ②코치 폴더 두기(설치 아님·위치만) ③환경 점검 ④첫 직원. *부트스트랩은 실제 명령으로(아래), setup-helper는 깐 뒤를 맡는다.*
-20a. **bullets** Codex 설치 (실제 명령) — PowerShell에 `irm https://chatgpt.com/codex/install.ps1 | iex` → `codex` → 'Sign in with ChatGPT' 로그인. (대안 `npm install -g @openai/codex`). **닭-달걀 빈틈을 메우는 핵심 장.**
-20b. **loop** 폴더 두고 → 켜고 → 부르기 — 코치 폴더 두기 → 그 폴더에서 `codex` → 한국어로 '~하고 싶어' → `/quit`
-20c. **glossary2** 자주 쓰는 명령어 카드 — `/clear` `/resume` `/goal` `/plan` `/model` `/compact` `/status` `/quit`. **비개발자 기준으로 추렸다**: `/diff`·`/init` 같은 개발자용은 뺀다.
-20d. **bullets** 진행상황 — 초록색 영어는 'AI가 생각 중'(안 읽어도 됨), 진행·결과는 코치가 한국어로, 더 보려면 `/status`·`/goal`
+20·맨땅. **bullets** 맨 땅에서 시작 개요 — ①Codex 설치 ②코치 설치(명령 두 줄) ③첫 직원. *부트스트랩은 실제 명령으로(아래).*
+20a. **bullets** ① Codex 설치 (실제 명령) — PowerShell에 `irm https://chatgpt.com/codex/install.ps1 | iex` → 창 다시 열기 → `codex` → 'Sign in with ChatGPT' 로그인. (대안 `npm install -g @openai/codex`)
+20b. **bullets** ② 코치 설치 (플러그인 두 줄) — `codex plugin marketplace add rubydatalab/ai-project-coach` → `codex plugin add ai-employee-coach@ai-project-coach` → '~하고 싶어'. **폴더 만질 필요 없음(닭-달걀 빈틈 제거).**
+20c. **bullets** 권한은 'Auto'로 — 처음 켜면(또는 `/permissions`) 모드 선택. **Auto**(폴더 안 자유+위험한 건 물어봄) 추천 / Read Only(답답) / ⚠️Full Access(안전장치 꺼짐, 금지). '멈춤 버튼' 철학과 연결.
+20d. **glossary2** 자주 쓰는 명령어 카드 — `/clear` `/resume` `/goal` `/plan` `/permissions` `/model` `/compact` `/status` `/quit`. **비개발자 기준 큐레이션**(`/diff`·`/init` 등 개발자용 제외).
+20e. **bullets** 진행상황 — 초록색 영어는 'AI가 생각 중'(안 읽어도 됨), 진행·결과는 코치가 한국어로, 더 보려면 `/status`·`/goal`
 21. 환경은 '환경 준비 도우미'가 알아서 (setup-helper) — 따로따로 설치 안 함
 22. 내 PC에서 매일 쓰기 (run-helper) / 막히면 문제 해결 코치 (trouble-helper)
 23. **team** — 스킬 11종 한눈에 (시작 · 사업 · 개인 · 사용)
