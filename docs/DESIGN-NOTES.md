@@ -104,6 +104,29 @@
 
 ## 9. 강의 덱
 
-- 형식: **slides-grab**, `lecture/decks/ai-il/`, **57장**.
-- 구성: PART 1 사고방식 → PART 2 "직원을 만들어 일을 시킨다"(카테고리 A~G, G=직접 짓기) → PART 3 준비·쓰기(Codex 설치·명령어·진행상황·환경 준비) → 부록 용어.
-- 빌드 파이프라인: `python decks/ai-il/build.py` → `slides-grab validate` → PNG(Playwright) → `build-viewer`(viewer.html) → `pdf`.
+- 형식: **slides-grab**, `lecture/decks/ai-il/`, **60장**.
+- 구성: 오프닝 → PART 1 사고방식 → PART 2 "직원을 만들어 일을 시킨다"(카테고리 A~G, G=직접 짓기) → PART 3 준비·쓰기(Codex 설치·플러그인 설치·권한 모드·부르는 법·명령어·환경 준비) → 부록 용어 → Q&A → "Codex한테 물어보세요"(애니메이션).
+- 빌드 파이프라인: `python decks/ai-il/build.py` → `slides-grab validate` → `build-viewer`(viewer.html) → (선택) `pdf`. PNG는 별도.
+
+---
+
+## 10. 배포 (Release)
+
+배포 경로는 둘. **둘 다 `git push`만 하면 자동 반영된다.**
+
+### A. 코치 스킬(플러그인) → 마켓플레이스
+- `plugins/ai-employee-coach/skills/` 또는 `plugin.json` 수정 → 커밋 → `git push`.
+- 학생은 `codex plugin marketplace upgrade`로 갱신. 큰 변경 땐 `plugin.json`의 `version`을 올린다.
+- 설치(학생): `codex plugin marketplace add rubydatalab/ai-project-coach` → `codex plugin add ai-employee-coach@ai-project-coach`.
+
+### B. 강의 덱 → GitHub Pages (.io)
+- **사이트: https://rubydatalab.github.io/ai-project-coach/** (루트 `index.html` → `lecture/decks/ai-il/viewer.html` 리다이렉트).
+- 슬라이드(`build.py`) 수정 시 **반드시 이 순서로**:
+  1. `cd lecture && python decks/ai-il/build.py` — `slide-*.html` 재생성
+  2. `npx slides-grab build-viewer --slides-dir decks/ai-il` — **`viewer.html` 재생성(Pages가 서빙하는 파일이라 필수)**
+  3. 커밋 → `git push`
+- Pages(main 브랜치 루트)가 자동 재빌드 → **1~2분 뒤 .io 반영**.
+- `viewer.html`은 git 추적(Pages용). `*.pdf`·`out-png/`·`node_modules/`는 gitignore.
+
+### 공통
+- 푸시 전 비밀키·비번 스캔(없어야 함). 첫 배포는 `gh repo create --public --source . --push`, Pages 활성화는 `gh api -X POST repos/<owner>/<repo>/pages -f source[branch]=main -f source[path]=/`(한 번만).
