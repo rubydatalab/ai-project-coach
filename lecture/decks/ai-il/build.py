@@ -596,7 +596,7 @@ bullets("처음 한 번 · 큰 그림", "딱 세 단계 — 그다음은 매일 
 ])
 bullets("① 앱 깔고 로그인 (딱 한 번)", "설치 파일 받아서 클릭 — 터미널 필요 없어요", [
     ("<b>1.</b> 아래를 눌러 <b>Codex 데스크톱 앱</b>을 내려받아요 (새 탭에서 열려요)", ""),
-    (LINK("https://chatgpt.com/codex", "chatgpt.com/codex 에서 앱 받기"), "cmdline"),
+    (LINK("https://chatgpt.com/ko-KR/codex/", "chatgpt.com/ko-KR/codex 에서 앱 받기"), "cmdline"),
     ("<b>2.</b> 받은 파일을 <b>클릭해서 설치</b> → 앱을 열어요", "c"),
     ("<b>3.</b> <b>'Sign in with ChatGPT'</b>로 로그인 (비밀번호는 사장님이 직접)", "v"),
 ])
