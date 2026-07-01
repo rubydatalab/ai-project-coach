@@ -163,6 +163,11 @@ body { width:720pt; height:405pt; font-family:'Pretendard',sans-serif; backgroun
 .cmd code { flex:1; font-family:'D2Coding','Consolas','Courier New',monospace; font-size:12.5pt; color:#cdeeff; line-height:1.34; word-break:break-all; }
 .copybtn { flex:none; cursor:pointer; background:rgba(0,180,255,.20); border:1px solid rgba(0,180,255,.55); color:#e7f6ff; border-radius:7pt; font-size:12pt; font-weight:700; padding:4pt 10pt; line-height:1.1; }
 .copybtn.ok { background:rgba(0,255,136,.28); border-color:#00FF88; color:#bfffe0; }
+.linkbtn { display:inline-flex; align-items:center; gap:6pt; text-decoration:none; background:rgba(0,255,136,.14); border:1px solid rgba(0,255,136,.5); color:#bfffe0; border-radius:9pt; padding:8pt 15pt; font-size:14.5pt; font-weight:800; }
+/* shot (실제 앱 화면 캡처) */
+.shot { margin-top:14pt; display:flex; justify-content:center; }
+.shot img { max-width:78%; max-height:238pt; border-radius:10pt; border:1px solid rgba(255,255,255,.14); box-shadow:0 6pt 26pt rgba(0,0,0,.45); }
+.shotcap { margin-top:11pt; text-align:center; font-size:14pt; color:#9aa0c0; }
 """
 
 COPY_JS = ('<script>function cp(b){var t=b.previousElementSibling.textContent;'
@@ -191,6 +196,18 @@ def CMD(command):
     # 복사 가능한 명령어 줄 (뷰어 HTML에선 클릭 복사, PDF/PNG에선 정적 표시)
     return ('<span class="cmd"><code>%s</code>'
             '<button class="copybtn" onclick="cp(this)" title="복사">복사</button></span>') % esc(command)
+
+def LINK(url, text):
+    # 뷰어에서 클릭하면 새 탭으로 여는 링크 버튼
+    return '<a class="linkbtn" href="%s" target="_blank" rel="noopener">%s ↗</a>' % (esc(url), esc(text))
+
+def imgslide(kick, title, img, caption=""):
+    # 실제 앱 화면 캡처 슬라이드 (img/ 아래 파일)
+    cap = '<div class="shotcap">%s</div>' % caption if caption else ""
+    inner = ('<div class="frame"><div class="kicker">%s</div><div class="h1">%s</div>'
+             '<div class="rule"></div><div class="shot"><img src="img/%s" alt=""></div>%s</div>'
+             ) % (esc(kick), esc(title), img, cap)
+    page(inner)
 
 # ---- 템플릿 ----
 def cover():
@@ -577,13 +594,15 @@ bullets("처음 한 번 · 큰 그림", "딱 세 단계 — 그다음은 매일 
     ("<b>③ 첫 직원</b> — 그냥 '<b>~하고 싶어</b>' 한마디. 뭐부터 할지 몰라도 코치가 안내.", "v"),
     ("브라우저 연결 같은 건 그때 <b>'환경 준비 도우미'</b>가 깔아줘요(로그인·허용만 사장님).", ""),
 ])
-bullets("① Codex 깔고 로그인 (딱 한 번)", "PowerShell은 여기까지 — 그다음은 전부 앱 안에서", [
-    ("<b>1.</b> <b>PowerShell</b> 열기 (시작 → 'PowerShell' 검색) → 아래 붙여넣고 Enter", ""),
-    (CMD("irm https://chatgpt.com/codex/install.ps1 | iex"), "cmdline"),
-    ("<b>2.</b> PowerShell <b>닫았다 다시 열고</b> → <b>codex</b> 입력 → <b>'Sign in with ChatGPT'</b> (비번은 사장님이)", ""),
-    ("<b>3.</b> 아래 한 줄이면 <b>데스크톱 앱</b>이 열려요 (없으면 설치까지)", "c"),
-    (CMD("codex app"), "cmdline"),
+bullets("① 앱 깔고 로그인 (딱 한 번)", "설치 파일 받아서 클릭 — 터미널 필요 없어요", [
+    ("<b>1.</b> 아래를 눌러 <b>Codex 데스크톱 앱</b>을 내려받아요 (새 탭에서 열려요)", ""),
+    (LINK("https://chatgpt.com/codex", "chatgpt.com/codex 에서 앱 받기"), "cmdline"),
+    ("<b>2.</b> 받은 파일을 <b>클릭해서 설치</b> → 앱을 열어요", "c"),
+    ("<b>3.</b> <b>'Sign in with ChatGPT'</b>로 로그인 (비밀번호는 사장님이 직접)", "v"),
 ])
+imgslide("① 설치하면 이런 앱이 열려요", "왼쪽에 메뉴, 가운데 대화창 — 여기서 다 합니다",
+    "app-project.png",
+    "왼쪽 '프로젝트'에 내 작업폴더(내사업)를 넣어두고, 아래 칸에 말만 걸면 됩니다.")
 bullets("② 작업폴더 만들고 · 복붙 3줄", "터미널 아이콘 누르고, 이 세 줄 붙여넣기 → 끝", [
     ("폴더 하나 만들어 사이드바에 <b>프로젝트로 추가</b> → 오른쪽 위 <b>터미널 아이콘</b> 열기", ""),
     (CMD("codex plugin marketplace add rubydatalab/ai-project-coach"), "cmdline"),
@@ -591,6 +610,9 @@ bullets("② 작업폴더 만들고 · 복붙 3줄", "터미널 아이콘 누르
     (CMD("iwr https://raw.githubusercontent.com/rubydatalab/ai-project-coach/main/templates/AGENTS.md -OutFile AGENTS.md ; ni 지식 -ItemType Directory -Force"), "cmdline"),
     ("→ 이 폴더에 <b>AGENTS.md · 지식/</b>가 생기면 끝. 코치가 이 폴더에서 깨어나요.", "v"),
 ])
+imgslide("② 이게 '앱 안' 터미널이에요", "따로 까만 창 열 필요 없어요 — 앱 안에서 세 줄",
+    "app-terminal.png",
+    "오른쪽 위 터미널 아이콘을 누르면 앱 안에 열려요. 여기에 세 줄 붙여넣으면 코치가 깔립니다.")
 bullets("처음 켤 때 · 권한을 '나 대신 승인'으로", "자기 PC에서 혼자 쓰면 — 막힘없이 빠르게", [
     ("입력칸 아래 드롭다운에서 모드를 골라요. 기본은 <b>'승인 요청'</b>(매번 물어봐 답답).", ""),
     ("<b>✅ '나 대신 승인'</b> ← 추천 — AI가 안 묻고 알아서 일해요(파일 만들기·읽기 막힘 없음).", "c"),
@@ -603,16 +625,13 @@ bullets("AI 직원 부르는 법", "세 가지 — 말로, 콕 집어, 목록에
     ("<b>③ 목록에서</b> — <b>/skills</b> 치면 설치된 코치가 쭉 나와요. 골라 쓰면 돼요.", ""),
     ("<b>새로 만든 직원</b>도 똑같아요 — 말로 부르거나 <b>$이름</b>으로.", "v"),
 ])
-glossary2("자주 쓰는 명령어 · 외우지 말고 곁에 두기", "대화 중에 '/'로 부르는 것들", [
-    ("/clear", "머리 비우고 새 대화 — 앞 얘기 안 끌고 감"),
-    ("/resume", "저장된 지난 대화를 골라 이어받기"),
-    ("/goal", "지금 뭘 목표로 일하는지 정하고·확인하기"),
-    ("/plan", "바로 시작 말고, 계획부터 세우게 시키기"),
-    ("/permissions", "권한 바꾸기 — 자기 PC면 '나 대신 승인'"),
-    ("/model", "더 똑똑한 머리로 바꾸기 · 생각 깊이 조절"),
-    ("/compact", "길어진 대화를 요약해 압축 (한도 넘기 전에)"),
-    ("/status", "어디까지 했나 · 얼마나 썼나 한눈에"),
-    ("/quit", "끄기 — 그냥 창을 닫아도 됩니다"),
+glossary2("Desktop에선 버튼으로 · 명령어 안 외워요", "앱에선 클릭 한 번이면 됩니다", [
+    ("＋ 새 채팅", "머리 비우고 새로 시작 — 앞 얘기 안 끌고 감"),
+    ("사이드바 채팅 목록", "저장된 지난 대화를 골라 이어받기"),
+    ("모델 드롭다운 (5.5 중간)", "더 똑똑한 머리로 · 생각 깊이 조절"),
+    ("승인 셀렉터 (나 대신 승인)", "권한 바꾸기 — 자기 PC면 '나 대신 승인'"),
+    ("🔍 검색", "지난 대화·내용을 빠르게 찾기"),
+    ("⏰ 예약됨", "정해진 시각에 자동으로 (다음 장)"),
 ])
 bullets("이런 것도 됩니다 (강의에서 직접 보여드려요)", "복붙 끝나면 — 말만 하면 따라와요", [
     ("<b>그림도 만들어요</b> — '이런 상세컷 만들어줘' 하면 바로. (로그인만, API키 필요 없음)", ""),
@@ -620,6 +639,9 @@ bullets("이런 것도 됩니다 (강의에서 직접 보여드려요)", "복붙
     ("<b>폰에서도 조종</b> — 설정에서 켜고 QR 스캔하면, 밖에서 폰으로 내 PC 직원에게 일 시켜요.", "v"),
     ("브라우저 연결 등 빠진 건 <b>'환경 준비 도우미'</b>가 그때그때 깔아줘요(허용만 사장님).", ""),
 ])
+imgslide("정해진 시각에 자동 · '예약됨'", "사이드바 '예약됨'에서 대화로 걸어두면 끝",
+    "app-schedule.png",
+    "'채팅으로 만들기'를 누르고 '매일 아침 9시에 ~'처럼 말하면, 그 시각에 알아서 해둡니다.")
 bullets("매일 쓰기 · 막히면", "내 PC에서, 늘 같은 흐름", [
     ("<b>① 앱에서 폴더(프로젝트) 열기 → ② '그거 해줘' 한마디</b>, 매번 같아요", ""),
     ("지난번 만든 직원은 이름으로 다시 부르면 끝", "c"),
