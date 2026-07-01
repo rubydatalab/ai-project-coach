@@ -24,10 +24,12 @@
 cd lecture
 python decks/ai-il/build.py                                  # 1) slide-*.html 재생성
 npx slides-grab build-viewer --slides-dir decks/ai-il        # 2) viewer.html 재생성 (Pages가 서빙하는 파일 — 빼먹으면 .io 안 바뀜)
+python decks/ai-il/patch-viewer.py                           # 2.5) 뷰어 iframe sandbox에 allow-scripts·allow-popups 추가 (복사 버튼·링크 살리기 — 2) 돌릴 때마다 필수)
 git add -A && git commit -m "..." && git push                # 3) 1~2분 뒤 .io 반영
 ```
 - `viewer.html`은 git 추적(Pages용). `*.pdf`·`out-png/`·`node_modules/`는 gitignore.
-- **흔한 실수**: `build.py`만 고치고 2)를 건너뛰면 .io가 안 바뀐다 ("export 안 됐다"의 정체).
+- **흔한 실수 ①**: `build.py`만 고치고 2)를 건너뛰면 .io가 안 바뀐다 ("export 안 됐다"의 정체).
+- **흔한 실수 ②**: 2) 뒤 2.5) `patch-viewer.py`를 빼먹으면 **복사 버튼·다운로드 링크가 안 먹는다**(build-viewer가 sandbox="allow-same-origin"만 넣어 슬라이드 JS·팝업을 막음).
 
 ### 공통
 - 푸시 전 비밀키·비번 스캔(없어야 함).
@@ -35,7 +37,7 @@ git add -A && git commit -m "..." && git push                # 3) 1~2분 뒤 .io
 
 ## 빌드/검증 커맨드
 - 슬라이드 빌드: `cd lecture && python decks/ai-il/build.py`
-- 뷰어 빌드: `cd lecture && npx slides-grab build-viewer --slides-dir decks/ai-il`
+- 뷰어 빌드: `cd lecture && npx slides-grab build-viewer --slides-dir decks/ai-il` → 이어서 `python decks/ai-il/patch-viewer.py` (복사 버튼·링크용 sandbox 권한)
 - 검증: `cd lecture && npx slides-grab validate`
 - (선택) PDF: `cd lecture && npx slides-grab pdf` — 재생성물이라 커밋 안 함
 

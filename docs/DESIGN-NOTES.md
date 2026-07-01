@@ -129,6 +129,7 @@
 - 슬라이드(`build.py`) 수정 시 **반드시 이 순서로**:
   1. `cd lecture && python decks/ai-il/build.py` — `slide-*.html` 재생성
   2. `npx slides-grab build-viewer --slides-dir decks/ai-il` — **`viewer.html` 재생성(Pages가 서빙하는 파일이라 필수)**
+  2.5. `python decks/ai-il/patch-viewer.py` — 뷰어 iframe sandbox에 `allow-scripts`·`allow-popups` 추가(복사 버튼·다운로드 링크가 막히지 않게, 2 돌릴 때마다 필수)
   3. 커밋 → `git push`
 - Pages(main 브랜치 루트)가 자동 재빌드 → **1~2분 뒤 .io 반영**.
 - `viewer.html`은 git 추적(Pages용). `*.pdf`·`out-png/`·`node_modules/`는 gitignore.
