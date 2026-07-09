@@ -664,6 +664,11 @@ bullets("② 그 터미널에 이 세 줄 붙여넣기", "오른쪽 '복사' 눌
 ])
 imgslide("② 이렇게 나오면 성공", "'앱 안' 터미널에서 세 줄이 돈 모습",
     "app-terminal.png", "'Added plugin ai-employee-coach'가 보이면 코치가 깔린 거예요.")
+bullets("나중에 새 기능 받기 — 업데이트", "코치가 좋아지면 이 두 줄로 최신으로 맞춰요", [
+    (CMD("codex plugin marketplace upgrade"), "cmdline"),
+    (CMD("codex plugin add ai-employee-coach@ai-project-coach"), "cmdline"),
+    ("→ 첫 줄은 <b>새 목록 받기</b>, 둘째 줄이 <b>실제 반영</b>. 둘 다 돌려야 새 기능이 들어와요.", "v"),
+])
 bullets("처음 켤 때 · 권한을 '나 대신 승인'으로", "자기 PC에서 혼자 쓰면 — 막힘없이 빠르게", [
     ("입력칸 아래 드롭다운에서 모드를 골라요. 기본은 <b>'승인 요청'</b>(매번 물어봐 답답).", ""),
     ("<b>✅ '나 대신 승인'</b> ← 추천 — AI가 안 묻고 알아서 일해요(파일 만들기·읽기 막힘 없음).", "c"),
