@@ -59,13 +59,14 @@ description: 비개발자 셀러가 AI 직원을 쓰기 위한 환경(스킬 묶
 ### 브라우저 연결 (openchrome)
 - **무엇:** 사장님이 평소 쓰는 크롬을 AI가 직접 보고 조작하게 하는 연결. 오픈소스 MCP 서버 `openchrome-mcp`.
 - **전제:** Node.js(`npx`)와 크롬이 깔려 있어야 한다. 없으면 사장님께 설치를 안내한다(앱 다운로드는 사람 단계).
-- **이미 됐는지 먼저 확인:** `claude mcp list`(Claude Code) 또는 `codex mcp list`(Codex)에 `openchrome`가 보이면 끝 — 다시 깔지 않는다.
-- **설치 (한 번만, 환경에 맞는 쪽 하나):**
-  - Claude Code: `claude mcp add openchrome -- npx -y openchrome-mcp@latest serve --auto-launch --visible`
-  - Codex: `codex mcp add openchrome -- npx -y openchrome-mcp@latest serve --auto-launch --visible`
-- **적용:** 등록 후 AI(Claude Code/Codex)를 **한 번 재시작**하면 브라우저 도구가 뜬다.
+- **Codex는 대개 자동:** 이 코치 플러그인(`ai-employee-coach`)이 openchrome을 **번들로 물고 온다.** 플러그인 설치/갱신이 끝났으면 이미 등록돼 있는 게 정상 — `codex mcp list`에 `openchrome`가 보이면 끝, 다시 깔지 않는다.
+- **안 보이면 (자동복구 폴백, 환경에 맞는 쪽 하나):**
+  - Codex: `codex mcp add openchrome -- npx -y openchrome-mcp@latest serve --auto-launch`
+  - Claude Code(번들 없음): `claude mcp add openchrome -- npx -y openchrome-mcp@latest serve --auto-launch`
+- **적용:** 등록 후 AI를 **한 번 재시작**하면 브라우저 도구가 뜬다.
 - **확인:** 시험으로 페이지 하나를 열어 성공을 본다. 안 뜨면 위 `list`로 등록 여부부터 점검한다.
-- **사람 단계:** 크롬에 평소 계정으로 **로그인된 상태 유지**. 로그인·캡차는 사장님(철칙 1·5).
+- **프로필(한 번만):** openchrome은 브라우저 프로필을 **스스로 관리한다.** 확장·로그인은 **거기서 한 번** 해두면 다음에도 유지된다. `--user-data-dir`로 사장님 실제 크롬 폴더(경로에 공백)를 억지로 붙이지 않는다 — 최신 크롬 정책상 막히고 경로가 깨진다.
+- **사람 단계:** 그 크롬에 평소 계정으로 **한 번 로그인**해 두면 유지. 로그인·캡차는 사장님(철칙 1·5).
 
 ### 외부 서비스 연결 (구글시트·쇼핑몰 등)
 - 서비스마다 연결 방식이 다르다. **여기서 명령을 지어내지 말고** [[service-connector]]로 넘긴다.
@@ -85,7 +86,8 @@ description: 비개발자 셀러가 AI 직원을 쓰기 위한 환경(스킬 묶
 ### 스킬 묶음
 - 이 코치들은 **Codex 플러그인**(`ai-employee-coach`)으로 깔린다. 한 번만:
   `codex plugin marketplace add rubydatalab/ai-project-coach` → `codex plugin add ai-employee-coach@ai-project-coach`.
-  이미 깔려 있으면 `codex plugin list`로 확인되고 다시 깔지 않는다. (갱신은 `codex plugin marketplace upgrade`.)
+  이미 깔려 있으면 `codex plugin list`로 확인되고 다시 깔지 않는다.
+  - **갱신은 2줄이다:** `codex plugin marketplace upgrade` → `codex plugin add ai-employee-coach@ai-project-coach` (재실행). `upgrade`만으론 마켓 카탈로그(스냅샷)만 갱신되고 **설치본엔 반영 안 된다** — `plugin add`를 다시 돌려야 새 버전(번들 openchrome 포함)이 적용된다.
 
 ---
 

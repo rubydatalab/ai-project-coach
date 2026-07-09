@@ -1,0 +1,8 @@
+{
+  "mcp_servers": {
+    "openchrome": {
+      "command": "npx",
+      "args": ["-y", "openchrome-mcp@latest", "serve", "--auto-launch"]
+    }
+  }
+}
