@@ -1,0 +1,27 @@
+{
+  "_readme": "관리형 자동 로그인 설정(비밀값 없음). 실제 파일은 셀러 작업폴더에 managed-login.json 으로 둔다. 비밀번호/아이디 원문은 절대 여기 넣지 않는다 — openchrome 볼트(vault://이름)에만 저장한다. 코치가 대화로 이 파일을 만들어 준다(셀러가 손으로 편집하지 않음).",
+
+  "enabled": false,
+
+  "maxLoginAttempts": 3,
+  "lockStaleMinutes": 5,
+
+  "services": {
+    "coupang-wing": {
+      "label": "쿠팡 윙(판매자센터)",
+      "allowedDomains": ["wing.coupang.com"],
+      "loginUrl": "https://wing.coupang.com/login",
+      "allowedRedirects": ["wing.coupang.com"],
+      "accounts": {
+        "main": {
+          "usernameRef": "vault://coupang-wing.main.username",
+          "passwordRef": "vault://coupang-wing.main.password",
+          "usernameField": "아이디",
+          "passwordField": "비밀번호",
+          "submit": "로그인",
+          "expectedIdentity": "여기에_기대하는_업체명_또는_계정명"
+        }
+      }
+    }
+  }
+}
